@@ -7,7 +7,7 @@ const app = express()
 
 const getConn = () => {
     return new Client({
-        connectionString: env.parsed.DATABASE_URL,
+        connectionString: process.env.DATABASE_URL,
         ssl: {
           rejectUnauthorized: false
         }
