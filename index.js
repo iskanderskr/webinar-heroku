@@ -11,7 +11,7 @@ const getConn = () => {
         ssl: {
           rejectUnauthorized: false
         }
-    });
+    }); 
 }
 
 app.get('/', (req, res)=>{
