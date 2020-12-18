@@ -16,4 +16,4 @@ client.query(fs.readFileSync('./db.sql').toString(), (err)=>{
     if (err) throw err
 })
 
-module.exports = client
+module.exports = getConn
