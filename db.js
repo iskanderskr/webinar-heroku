@@ -10,10 +10,16 @@ const getConn = () => {
     }); 
 }
 
-const client = getConn()
-client.connect()
-client.query(fs.readFileSync('./db.sql').toString(), (err)=>{
-    if (err) throw err
-})
+const initDB = ()=>{
+    const client = getConn()
+    client.connect()
+    client.query(fs.readFileSync('./db.sql').toString(), (err)=>{
+        if (err) throw err
+    })
+}
 
-module.exports = getConn
+
+module.exports = {
+    getConn,
+    initDB
+}

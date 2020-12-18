@@ -1,5 +1,5 @@
 const express = require('express')
-const client = require('./db')()
+const client = require('./db').getConn()
 
 const app = express()
 
@@ -15,4 +15,7 @@ app.get('/contracts', (req, res)=>{
     });
 })
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 5000, ()=>{
+    console.log('Aplicação servindo na porta', process.env.PORT || 5000)
+    client.initDB()
+})
