@@ -1,5 +1,6 @@
 const express = require('express')
-const client = require('./db').getConn()
+const client = require('./db')
+const conn = client.getConn()
 
 const app = express()
 
@@ -8,8 +9,8 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/contracts', (req, res)=>{
-    client.connect()
-    client.query('SELECT * FROM db', (err, response) => {
+    conn.connect()
+    conn.query('SELECT * FROM db', (err, response) => {
         if (err) throw err
         res.json(response.rows)
     });
